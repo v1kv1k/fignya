@@ -1,0 +1,129 @@
+@font-face {
+    font-family: 'MinecraftBold';
+    src: url('font/MinecraftBold-nMK1.otf') format('truetype');
+}
+
+body {
+    background-color: #000000; /* Оливково-зеленый фон */
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+h1 {
+    font-family: 'MinecraftBold', sans-serif;
+    color: white;
+    position: relative;
+    text-shadow: 
+        2px 2px 0 #ff0000,
+        -2px -2px 0 #ff0000,
+        2px -2px 0 #ff0000,
+        -2px 2px 0 #ff0000;
+}
+
+h1::before {
+    content: "FLOPIA NEW SEASON";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        #ff0000, #ff2b00, #ff5500, #ff8000, 
+        #ffaa00, #ffd500, #ffff00, #ff00ff);
+    -webkit-text-stroke: 10px transparent;
+    text-stroke: 10px transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-animation 6s linear infinite;
+    background-size: 300% 100%;
+    z-index: -1;
+}
+
+@keyframes bounce-in {
+    0% { transform: scale(0); opacity: 0; }
+    50% { transform: scale(1.2); }
+    70% { transform: scale(0.9); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+.animate-bounce-in {
+    animation: bounce-in 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.stagger-delay-1 { animation-delay: 0.2s; }
+.stagger-delay-2 { animation-delay: 0.4s; }
+
+@keyframes dots {
+    0%, 20% { opacity: 0; transform: translateY(5px); }
+    50% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.dot-1, .dot-2, .dot-3 {
+    display: inline-block;
+    animation: dots 2s infinite;
+}
+
+.dot-1 { animation-delay: 0.2s; }
+.dot-2 { animation-delay: 0.4s; }
+.dot-3 { animation-delay: 0.6s; }
+
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 300% 50%; }
+}
+
+/* Дополнительные стили для мобильных устройств */
+@media (max-width: 639px) {
+    h1::before {
+        -webkit-text-stroke: 5px transparent;
+        text-stroke: 5px transparent;
+    }
+}
+
+@media (max-width: 768px) {
+    #Minecraft3DObj {
+        display: none; /* Скрыть 3D-мод��ль на планшетах и мобильных устройствах для повышения производительности */
+    }
+}
+
+/* Добавляем адаптивные размеры текста */
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 7rem; /* Уменьшаем размер заголовка на средних экранах */
+    }
+
+    .text-4xl {
+        font-size: 2rem; /* Корректируем размер подзаголовка */
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 5rem; /* Ещё больше уменьшаем на маленьких экранах */
+    }
+
+    .text-4xl {
+        font-size: 1.5rem;
+    }
+
+    /* Корректируем размер иконки */
+    .size-16 {
+        width: 64px; /* Пример: уменьшаем размер иконки */
+        height: 64px;
+    }
+}
+
